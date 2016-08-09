@@ -1,0 +1,93 @@
+﻿*
+{
+    padding: 0px;
+    margin: 0px;
+}
+
+.urunDetayResim
+{
+    width:100px;
+    height:60px;
+    border: 1px solid #000000;
+    
+    }
+
+
+
+.yazisagda
+{
+    text-align:right;
+    width: 150px;
+    display:block;
+    }
+    
+   
+
+table
+{
+    width:80%;
+    
+    }
+    
+    td
+    {
+        text-align:center;
+        
+        }
+
+tr:hover
+{
+    background-color:#cccccc;
+    
+    }
+
+select 
+{
+     width:153px;
+    }
+.azicerde
+{
+    margin-left:20px;
+    margin-bottom:20px;
+    font-size:8.5pt;
+    }
+.hata
+{
+    font-size: 9pt;
+    color: #ff0000;
+    font-style:italic;
+}
+.watermark{color:#cccccc;
+           font-size:9pt;
+           }
+
+input[type=text]:focus
+{
+    background-color: Yellow;
+}
+
+body
+{
+    background-color: #ffffff;
+    font-family: Tahoma, Verdana, Arial, Times New Roman;
+    font-size: 11pt;
+    color: #336699;
+    letter-spacing: 1px;
+}
+
+ul
+{
+    list-style: none;
+}
+
+a
+{
+    color: #a31e39;
+    text-decoration: none;
+}
+a:hover
+{
+    color: #ff0000;
+    text-decoration: underline;
+}
+

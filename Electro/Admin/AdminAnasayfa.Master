@@ -1,0 +1,43 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminAnasayfa.master.cs" Inherits="Electro.Admin.AdminAnasayfa" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="../css/adminSablon.css" rel="stylesheet" />
+    <link href="../css/genel.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    
+
+        <div id="cerceve">
+   <div id="baslik"><h1>Electronix Admin Panel</h1></div>
+   <div id="icerik">
+   <div id="solmenu">
+   <ul>
+   <li>Ürünler
+   <ul class="azicerde">
+     <li><a href="UrunEkle.aspx" title="Yeni Ürün">Yeni Ürün</a></li>
+     <li><a href="urunler.aspx" title="Ürünler">Ürünler</a></li>
+   </ul>
+   </li>
+   <li><a href="kategoriler.aspx" title="Kategoriler">Kategoriler</a></li>
+   <li><a href="markalar.aspx" title="Markalar">Markalar</a></li>
+   <li><a href="raporlar.aspx" title="Modeller">Raporlar</a></li>
+   </ul>
+   </div>
+   <div id="content">
+      <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+   </div>
+   </div>
+   </div>
+    </form>
+</body>
+</html>

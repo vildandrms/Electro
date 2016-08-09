@@ -1,0 +1,275 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Electro.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="iecss.css" rel="stylesheet" />
+    <script type="text/javascript" src="js/boxOver.js"></script>
+    <link href="style.css" rel="stylesheet" />
+
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div id="main_container">
+            <div class="top_bar">
+                <div class="top_search">
+                    <div class="search_text"><a href="#">Arama Yap</a></div>
+                <asp:TextBox ID="txtArama" CssClass="search_text" runat="server"></asp:TextBox>
+                  <asp:ImageButton ID="ImageButton1" ImageUrl="~/images/search.gif" CssClass="search_bt" runat="server" OnClick="ImageButton1_Click" />
+                </div>
+
+                <div class="languages">
+                    <div class="lang_text">Dil :</div>
+                    <a href="#" class="lang">
+                        <img src="images/en.gif" alt="" title="" border="0" /></a>
+                    <a href="#" class="lang">
+                        <img src="images/de.gif" alt="" title="" border="0" /></a>
+                </div>
+
+            </div>
+            <div id="header">
+
+                <div id="logo">
+                  <%--  <a href="index.html">
+                        <img src="images/logo.png" alt="" title="" border="0" width="237" height="140" /></a>--%>
+                </div>
+
+                <div class="oferte_content">
+                    <div class="top_divider">
+                        <img src="images/header_divider.png" alt="" title="" width="1" height="164" />
+                    </div>
+                    <div class="oferta">
+
+                        <div class="oferta_content">
+                            <%--<img src="images/laptop.png" width="94" height="92" border="0" class="oferta_img" />--%>
+
+                            <%--<div class="oferta_details">
+                                <div class="oferta_title">Samsung GX 2004 LM</div>
+                                <div class="oferta_text">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                           
+                                </div>
+                                <a href="details.html" class="details">details</a>
+                            </div>--%>
+                        </div>
+                        <%--<div class="oferta_pagination">
+
+                            <span class="current">1</span>
+                            <a href="#?page=2">2</a>
+                            <a href="#?page=3">3</a>
+                            <a href="#?page=3">4</a>
+                            <a href="#?page=3">5</a>
+
+                        </div>--%>
+
+                    </div>
+                    <div class="top_divider">
+                        <img src="images/header_divider.png" alt="" title="" width="1" height="164" />
+                    </div>
+
+                </div>
+                <!-- end of oferte_content-->
+
+
+            </div>
+
+            <div id="main_content">
+
+                <div id="menu_tab">
+                    <div class="left_menu_corner"></div>
+                    <ul class="menu">
+                        <li><a href="Default.aspx" class="nav1">Home </a></li>
+                        <li class="divider"></li>
+                        <li><a href="Default.aspx" class="nav2">Ürünler</a></li>
+                        <li class="divider"></li>
+                        <li><a href="hakkimizda.aspx" class="nav3">Hakkýmýzda</a></li>
+                        <li class="divider"></li>
+                        <li><a href="hesabim.aspx" class="nav4">Hesabým</a></li>
+                        <li class="divider"></li>
+                        <li><a href="Login.aspx" class="nav4">
+                            <asp:Label ID="lblGiris" runat="server" Text=""></asp:Label></a></li>
+                        <li class="divider"></li>
+                        <li><a href="sepetim.aspx" class="nav5">Sipariþlerim </a></li>
+                        <li class="divider"></li>
+                        <li><a href="iletisim.aspx" class="nav6">Ýletiþim</a></li>
+                        <%--<li class="divider"></li>
+                        <li class="currencies">Currencies
+                        --%>
+                       <%-- <select>
+                            <option>US Dollar</option>
+                            <option>Euro</option>
+                        </select>--%>
+                       <%-- </li>--%>
+                    </ul>
+
+                    <div class="right_menu_corner"></div>
+                </div>
+             
+
+
+                <div class="left_content">
+                    <div class="title_box">Kategoriler</div>
+                    <asp:Repeater ID="rpKategoriler" runat="server">
+                        <HeaderTemplate>
+                            <ul class="left_menu">
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <li class="odd"><a href='<%# string.Format("../kategoriurun.aspx?kId={0}",Eval("Id")) %>'><%# Eval("Ad") %></a></li>
+                        </ItemTemplate>
+                        <AlternatingItemTemplate>
+                            <li class="even"><a href='<%# string.Format("../kategoriurun.aspx?kId={0}",Eval("Id")) %>'><%# Eval("Ad") %></a></li>
+                        </AlternatingItemTemplate>
+                        <FooterTemplate></ul></FooterTemplate>
+
+
+
+
+                    </asp:Repeater>
+
+                    <div class="title_box">En çok Satan</div>
+                    <asp:Repeater ID="rptVitrin" runat="server" >
+                        <ItemTemplate>
+                        <div class="border_box">
+
+                            <div class="product_title"><%# Eval ("Model") %></div>
+                            <div class="product_img">
+                                <a href='<%# string.Format("urundetay.aspx?urunId={0}", Eval("Id")) %>'>
+                                    <asp:Image ID="Image1" CssClass="urunDetayResim" ImageUrl='<%# string.Format("images/urunler/{0}", Eval("Resim")) %>' runat="server" /></a>
+                            </div>
+                           <div class="prod_price"><span class="price"><asp:Label ID="lblFiyat" runat="server" Text='<%# string.Format("{0:N}", Eval("Fiyat")) %>'></asp:Label></span></div> 
+                        </div>
+                            </ItemTemplate>
+                    </asp:Repeater>
+
+
+                    <div class="title_box">Newsletter</div>
+                    <div class="border_box">
+                        <input type="text" name="newsletter" class="newsletter_input" value="your email" />
+                        <a href="#" class="join">join</a>
+                    </div>
+
+                    <div class="banner_adds">
+
+                        <a href="#">
+                            <img src="images/bann2.jpg" alt="" title="" border="0" /></a>
+                    </div>
+
+
+                </div>
+                <!-- end of left content -->
+
+
+                <div class="center_content">
+
+
+
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+
+
+                </div>
+                <!-- end of center content -->
+
+                <div class="right_content">
+                    <div class="shopping_cart">
+                        <div class="cart_title">Sepetim</div>
+
+                        <div class="cart_details">
+                            <asp:Label ID="lblToplamUrun" runat="server"></asp:Label><br />
+                            <br />
+                            <span class="border_cart"></span>
+                            Toplam: <span class="price">
+                                <asp:Label ID="lblToplamTutar" runat="server"></asp:Label></span>
+                        </div>
+
+                        <div class="cart_icon">
+                            <a href="sepetim.aspx" title="header=[Checkout] body=[&nbsp;] fade=[on]">
+                                <img src="images/shoppingcart.png" alt="" title="" width="48" height="48" border="0" /></a>
+                        </div>
+
+                    </div>
+
+
+                    <div class="title_box">Yeni Ürünler</div>
+                    <asp:Repeater ID="rptYeniUrunler" runat="server" >
+                        <ItemTemplate>
+                        <div class="border_box">
+
+                            <div class="product_title"><%# Eval ("Model") %></div>
+                            <div class="product_img">
+                                <a href='<%# string.Format("urundetay.aspx?urunId={0}", Eval("Id")) %>'>
+                                    <asp:Image ID="Image1" CssClass="urunDetayResim" ImageUrl='<%# string.Format("images/urunler/{0}", Eval("Resim")) %>' runat="server" /></a>
+                            </div>
+                           <div class="prod_price"><span class="price"><asp:Label ID="lblFiyat" runat="server" Text='<%# string.Format("{0:N}", Eval("Fiyat")) %>'></asp:Label></span></div> 
+                        </div>
+                            </ItemTemplate>
+                    </asp:Repeater>
+
+
+                    <div class="title_box">Markalar</div>
+
+                    <asp:Repeater ID="rpMarkalar" runat="server">
+                        <HeaderTemplate>
+                            <ul class="left_menu">
+                        </HeaderTemplate>
+                        <ItemTemplate>
+                            <li class="odd"><a href='<%# string.Format("../markaurun.aspx?marId={0}",Eval("Id")) %>'><%# Eval("Ad") %></a></li>
+                        </ItemTemplate>
+                        <AlternatingItemTemplate>
+                            <li class="even"><a href='<%# string.Format("../markaurun.aspx?marId={0}",Eval("Id")) %>'><%# Eval("Ad") %></a></li>
+                        </AlternatingItemTemplate>
+                    </asp:Repeater>
+                    <div class="banner_adds">
+
+                        <a href="#">
+                            <img src="images/bann1.jpg" alt="" title="" border="0" /></a>
+                    </div>
+
+                </div>
+                <!-- end of right content -->
+
+
+            </div>
+            <!-- end of main content -->
+
+
+
+            <div class="footer">
+
+
+                <div class="left_footer">
+                    <img src="images/footer_logo.png" alt="" title="" width="170" height="49" />
+                </div>
+
+                <div class="center_footer">
+                    vildan @copy not 2016<br />
+                    <a href="http://csscreme.com/freecsstemplates/" title="free templates">
+                        <img src="images/csscreme.jpg" alt="free templates" title="free templates" border="0" /></a><br />
+                    <img src="images/payment.gif" alt="" title="" />
+                </div>
+
+                <div class="right_footer">
+                    <a href="index.html">home</a>
+                    <a href="details.html">about</a>
+                    <a href="details.html">sitemap</a>
+                    <a href="details.html">rss</a>
+                    <a href="contact.html">contact us</a>
+                </div>
+
+            </div>
+
+
+        </div>
+        <!-- end of main_container -->
+    </form>
+</body>
+
+</html>
+
+
+
